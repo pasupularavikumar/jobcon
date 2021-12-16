@@ -1,0 +1,114 @@
+{% extends 'jc_app/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+      <h2>Register Form</h2>
+      <form action="" class="needs-validation" method="POST" novalidate>{%csrf_token%}
+        
+        <div class="form-group">
+          <label for="name">NAME</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter the name" name="name" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="emailid">Email</label>
+            <input type="email" class="form-control" id="emailid" placeholder="Enter the Email" name="emailid" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="phonenumber">Mobile Number</label>
+            <input type="number" class="form-control" id="phonenumber" placeholder="Enter Mobile number" name="phonenumber" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="qualification">Qualification</label>
+            <input type="text" class="form-control" id="qualification" placeholder="b.tech/M.tech" name="qualification" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select class="form-control" name="Gender" id="Gender" required>
+              <option value="Male>">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="qualification">Year of Passing</label>
+            <input type="text" class="form-control" id="yearofpassing"  placeholder="Year of Passing" name="yearofpassing" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="qualification">Higher Education</label>
+            <input type="text" class="form-control" id="HigherEducation"  placeholder="Higher Education" name="HigherEducation" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="qualification">Place</label>
+          <input type="text" class="form-control" id="place"  placeholder="Hyderabad" name="place" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+        <div class="form-group">
+            <label for="qualification">Resume</label>
+            <input type="file" class="form-control" id="Resume"  placeholder="Upload Resume" name="Resume" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+
+
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" required> I agree <a href="#">Terms & conditions</a>.
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Check this checkbox to continue.</div>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <style>
+      body{
+        padding-top: 101px;
+      }
+    </style>
+    
+    <script>
+    // Disable form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Get the forms we want to add validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+{% endblock content %}

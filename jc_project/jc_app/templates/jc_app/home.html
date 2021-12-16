@@ -1,0 +1,71 @@
+{% extends 'jc_app/main.html' %}
+{% load static %}
+{% block content %}
+ 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+     {% for object in carousel%}
+    <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+      <img class="d-block w-100"  src="{{object.image.url}}" alt="SliderImg" style="max-height: 650px;">
+    
+    <div class="carousel-caption  d-md-block">
+      <h1 style="font-size:4vw;">{{object.title}}</h1>
+      <h3 style="font-size:3vw;">{{object.sub_title}}</h3>
+      <a href="{{object.link}}" class="button btn btn-primary" style="font-size:2vw;" >{{object.action_name}}</a>
+    </div>
+  </div> 
+    {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+<style> 
+.carousel-item img{
+opacity: 0.9;
+}
+.carousel-inner .carousel-caption{
+    padding-bottom: 10%;
+     
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+.carousel-inner .carousel-caption h1{
+  font-size:4vw;
+}
+
+.carousel-inner .carousel-caption .button{
+    font-weight: 500;
+    font-size:2vw;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    border: 2px solid #3489bd;
+    text-decoration: none;
+    background-color: #3489bd;
+    color: #fff;
+}
+
+</style>
+
+
+ 
+{% endblock content %}
+
+

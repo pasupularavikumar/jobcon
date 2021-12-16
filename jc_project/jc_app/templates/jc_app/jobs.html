@@ -1,0 +1,105 @@
+{% extends 'jc_app/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  body{
+  
+    padding-top: 55px;
+  }
+  .card{
+    margin-bottom: 25px;
+  }
+  .r1{
+    min-width: 20px;
+    height: 20px;
+    color: red;
+    background: none;    
+    justify-content: left;
+    align-items:left;
+    font-size: 1.5em;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+</style>
+
+<div class="container">
+  
+     <!----------------------------------------------- Search Button   -------------------------------------------->
+        
+     <div class="row">
+      <div class="col-md-12">
+          <form class=card card-sm>
+              <div class="card-body row no-gutters align-items-center">
+
+                  <div class="col">
+                      <input type="search" name='item_name' placeholder="Search for Jobs" class='form-control form-control-borderless'>
+                  </div>
+
+                  <div class="col-auto">
+                      <button class='btn btn-success' type='submit'>Search</button>
+                  </div>
+
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <!----------------------------------------------------- Jobs --------------------------------     -------------->
+    <div class="row" >
+     {% for job in Jobs reversed %}
+      <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><span><i class="fas fa-briefcase r1"></i></span>{{job.JobTitle}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-building r1"></i>{{job.CompanyName}} <br>
+              <span><i class="fas fa-rupee-sign r1"></i></span>{{job.salary}} <span>Lpa</span></h6>              
+              <p class="card-text"><span><i class="fas fa-map-marker-alt r1"></i></span>{{job.LocationCity}}<br>
+                <span><i class="fas fa-users r1"></i></span>{{job.NoOFOpenings}}<span> openings</span></p>
+              <div class="row">
+                <div class="col-lg-6">
+              <a href="{{job.id}}" class="card-link btn btn-primary btn-sm active btn-block">View</a>
+                </div>
+                <div class="col-lg-6"> 
+              <a href="{% url 'register' %}" class="card-link btn btn-primary btn-sm active btn-block">Apply</a>
+               </div>
+                
+            </div>
+            </div>
+          </div>
+      </div>  
+
+      {% endfor %}
+     
+  </div>
+
+
+<!----------------------------------------------- pagination  -------------------------------------------->
+<div class='row'>
+  <div class='col-md-3 offset-md-4'>
+      <ul class="pagination">
+          {% if Jobs.has_previous %}  
+              <li class="page-item">
+                  <a class="page-link" href="?page= {{ Jobs.previous_page_number }}">Previous</a>
+              </li>
+          {% endif %}
+
+          <li class="page-item active">
+              <a class="page-link" href="?page={{ Jobs.number}}">PageNo {{ Jobs.number}} </a>
+          </li>
+
+          {% if Jobs.has_next %}
+              <li class="page-item">
+                  <a  class="page-link" href="?page={{ Jobs.next_page_number }}">Next</a>
+              </li>
+          {% endif %}
+      </ul>
+  </div>
+</div>
+
+</div>
+
+ 
+
+{% endblock content %}

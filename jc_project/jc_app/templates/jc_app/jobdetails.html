@@ -1,0 +1,90 @@
+{% extends 'jc_app/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>{{job_detail.JobTitle}}</h3> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>{{job_detail.CompanyName}}</h5> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Salary : {{job_detail.salary}} Lpa </h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Openings : {{job_detail.NoOFOpenings}}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Skills : {{job_detail.SkillsRequirement}}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Location : {{job_detail.LocationCity}}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Qualification : {{job_detail.EducationQualification}}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>English Level : {{job_detail.EnglishLevel}}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Experience : {{job_detail.Experience }} </h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Description </h5><h6>{{job_detail.desc1 }}</h6> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Timings : {{job_detail.Timings }}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Working Days : {{job_detail.WorkingDays}}</h5> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Address</h5><h6>{{job_detail.Address}}</h6> 
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">APPLY</a>
+                </div>               
+            </div>      
+
+
+        </div>
+    </div>
+</div> 
+<style>
+body{
+    padding-top: 110px;
+}
+</style>
+
+{% endblock content %}
